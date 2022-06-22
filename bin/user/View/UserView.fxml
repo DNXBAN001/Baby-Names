@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootStage" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.View.UserViewController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="6.0" text="BABY NAMES APPLICATION" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="14.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
+        <tabs>
+          <Tab fx:id="babyNameUsabilityTab" text="Baby Name Usabilitty">
+               <content>
+                  <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="800.0">
+                           <children>
+                              <Slider fx:id="babyNameSlider" blockIncrement="15.0" layoutX="68.0" layoutY="160.0" majorTickUnit="15.0" max="2017.0" min="1880.0" minorTickCount="5" prefHeight="14.0" prefWidth="245.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+                              <TextField fx:id="textFieldNameView" layoutX="45.0" layoutY="71.0" onKeyPressed="#searchBabyNameUsability" prefHeight="25.0" prefWidth="304.0" promptText="Enter the baby Name here" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="517.0" prefWidth="519.0">
+                           <children>
+                              <SplitPane dividerPositions="0.5" layoutX="39.0" layoutY="23.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <LineChart fx:id="linechart" layoutX="-119.0" layoutY="-83.0" prefHeight="255.0" prefWidth="395.0" title="Number  of children born with the name" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </LineChart>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <PieChart fx:id="pieChart" layoutX="-91.0" layoutY="-93.0" prefHeight="254.0" prefWidth="395.0" title="Number of children born with the name by gender" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </content>
+          </Tab>
+          <Tab fx:id="babyNameMeaningTab" text="Baby Name Meaning">
+               <content>
+                  <SplitPane dividerPositions="0.4" prefHeight="160.0" prefWidth="200.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <TextField fx:id="textFieldNameMeaning" layoutX="35.0" layoutY="59.0" onKeyPressed="#searchBabyNameMeaning" prefHeight="25.0" prefWidth="262.0" promptText="Enter the baby Name here" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                              <TextArea fx:id="txtAreaBabyName" layoutX="28.0" layoutY="123.0" prefHeight="200.0" prefWidth="252.0" promptText="Display the baby name meaning here" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <TableView fx:id="babyNameTable" layoutX="39.0" layoutY="52.0" prefHeight="200.0" prefWidth="151.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                <columns>
+                                  <TableColumn fx:id="babyNameCol" prefWidth="164.0" text="Name" />
+                                  <TableColumn fx:id="babyNameGender" prefWidth="74.0" text="Gender" />
+                                    <TableColumn fx:id="babyNameCount" prefWidth="92.0" text="Count" />
+                                    <TableColumn fx:id="babyNameBirthYear" prefWidth="105.0" text="Birth Year" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
